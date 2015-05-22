@@ -26,6 +26,9 @@ module.exports = {
   },
 
   methods: {
+    reset: function() {
+      App.actions.reset()
+    },
     showView: function(view) {
       App.actions.showView(view)
     },

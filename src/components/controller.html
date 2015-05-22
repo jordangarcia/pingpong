@@ -26,6 +26,11 @@
         </div>
       </div>
     </div>
+    <div class="ui red button" style="position: absolute; bottom: 30px; left: 30px"
+      v-on="click: reset">
+      <i class="refresh icon"></i>
+      Reset Data
+    </div>
   </div>
   <div class="twelve wide right column" style="height: 100%; background: white; overflow: scroll;">
     <div v-component="{{currentView}}"></div>

@@ -5,16 +5,10 @@ var controllerComponent = require('../components/controller')
 
 Vue.config.debug = true
 
-Flux.observe(state => {
-  window.localStorage.setItem('state', Flux.serialize())
-})
+// setup persistence to local storage
+Flux.observe(_.debounce(App.actions.persistState))
 
-var persistedState = window.localStorage.getItem('state')
-if (persistedState) {
-  Flux.loadState(persistedState)
-} else {
-  App.actions.showView(App.views.PlayerUploader)
-}
+App.actions.initializeState()
 
 var Controller = Vue.extend(controllerComponent)
 new Controller({

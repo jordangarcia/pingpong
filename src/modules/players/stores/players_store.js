@@ -29,8 +29,8 @@ module.exports = Nuclear.Store({
  * @param {Player[]} payload.players
  */
 function addPlayers(state, payload) {
-  return state.withMutations(function(state) {
-    payload.players.forEach(function(player) {
+  return toImmutable({}).withMutations(state => {
+    payload.players.forEach(player => {
       state.set(player.id, toImmutable(player))
     })
   })

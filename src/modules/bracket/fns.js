@@ -55,9 +55,8 @@ function sample(list, percentiles, randomFn) {
   var pick = randomFn(bounds[0], bounds[1] - 1)
 
   if (!list[pick]) {
-    console.log("invalid pick", pick, list.length, bounds)
+    throw new Error("Invalid pick")
   }
-  console.log('pick', pick)
 
   var res = list.splice(pick, 1);
   return res[0]

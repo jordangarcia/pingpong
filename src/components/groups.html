@@ -1,10 +1,11 @@
 <div>
   <h1>Player Groups</h1>
-  <form class="ui form" v-on="submit: generateGroups($event)">
+  <form class="ui segment form" v-on="submit: generateGroups($event)">
     <div class="field">
       <label for="">Random Seed</label>
       <input type="text" v-model="seed" >
     </div>
+
     <div class="fields" v-repeat="round: rounds">
       <div class="two wide field">
           Round {{$index + 1}}:
@@ -19,11 +20,26 @@
     <button type="submit" class="ui submit button">Generate Groups</button>
   </form>
 
+  <div class="ui horizontal divider">
+    Groups
+  </div>
   <div class="ui grid">
     <div class="four wide column" v-repeat="players: groups">
-      <ul>
-        <li v-repeat="player: players">{{ player.name }} - {{ player.skill }}</li>
-      </ul>
+      <div class="ui divided list">
+        <div class="item">
+          <h3>Group {{ groupName($index) }}</h3>
+        </div>
+        <div class="item" v-repeat="player: players">{{ player.name }}
+          <span v-if="showSkill"> - {{ player.skill }}</span>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="ui horizontal divider">
+    Options
+  </div>
+  <div class="ui checkbox">
+    <input type="checkbox" v-model="showSkill" id="showSkill">
+    <label for="showSkill">Show skill levels</label>
   </div>
 </div>

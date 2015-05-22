@@ -12,10 +12,13 @@ module.exports = {
       players: Players.getters.playerList,
       groups: Bracket.getters.groups,
     })
+
+    this.generateGroups()
   },
 
   data() {
     return {
+      showSkill: true,
       seed: 'seed',
       rounds: [
         [75, 100],
@@ -30,12 +33,17 @@ module.exports = {
   },
 
   methods: {
+    groupName(ind) {
+      var names = ['A', 'B', 'C', 'D', 'E', 'F', 'H', 'I', 'J', 'K'];
+      return names[ind]
+    },
     /**
      * @param {Event} event
-     * @param {Player[]} players
      */
     generateGroups(event) {
-      event.preventDefault()
+      if (event) {
+        event.preventDefault()
+      }
       Bracket.actions.createGroups(this.players, this.rounds, this.seed)
     },
   },
