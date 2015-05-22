@@ -1,7 +1,7 @@
 module.exports = {
   server: {
     options: {
-      base: 'dist',
+      base: './',
       port: 8004,
     }
   },
