@@ -6,13 +6,19 @@ module.exports = {
     resolve: {
       root: [
         // when requiring a non-relative path resolve to optly directory firstthen node_modules
+        path.resolve(__dirname, '../src'),
         path.resolve(__dirname, '../node_modules'),
       ],
+      alias: {
+        // alias non npm modules
+        'vue': path.resolve(__dirname, '../node_modules/vue/dist/vue'),
+      }
     },
 
     module: {
       loaders: [
         { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
+        { test: /\.html/, exclude: /node_modules/, loader: 'html-loader'},
       ]
     },
 
@@ -27,7 +33,7 @@ module.exports = {
 
   dev: {
     entry: {
-      'app/app': './src/app/main.js',
+      app: './src/app/main.js',
     },
 
     plugins: [
@@ -37,6 +43,5 @@ module.exports = {
     ],
 
     watch: true,
-
   }
 };

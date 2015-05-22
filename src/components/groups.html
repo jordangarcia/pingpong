@@ -1,0 +1,29 @@
+<div>
+  <h1>Player Groups</h1>
+  <form class="ui form" v-on="submit: generateGroups($event)">
+    <div class="field">
+      <label for="">Random Seed</label>
+      <input type="text" v-model="seed" >
+    </div>
+    <div class="fields" v-repeat="round: rounds">
+      <div class="two wide field">
+          Round {{$index + 1}}:
+      </div>
+      <div class="two wide field">
+        <input type="text" v-model="round[0]" >
+      </div>
+      <div class="two wide field">
+        <input type="text" v-model="round[1]" >
+      </div>
+    </div>
+    <button type="submit" class="ui submit button">Generate Groups</button>
+  </form>
+
+  <div class="ui grid">
+    <div class="four wide column" v-repeat="players: groups">
+      <ul>
+        <li v-repeat="player: players">{{ player.name }} - {{ player.skill }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,31 @@
 <div>
-  <form>
+  <h1>Player List</h1>
 
+  <form class="ui form"
+    v-on="submit: updatePlayers(players)"
+    v-class="error: errorMsg">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Skill</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-repeat="players">
+          <td>{{ name }}</td>
+          <td>{{ email }}</td>
+          <td>
+            <input type="text" v-model="skill" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="ui error message" v-show="errorMsg">
+      {{ errorMsg }}
+    </div>
+    <button type="submit" class="ui submit button">Update Players</button>
   </form>
-  <ul>
-    <li></li>
-  </ul>
+
 </div>

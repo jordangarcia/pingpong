@@ -1,0 +1,33 @@
+<div class="ui divided two column padded grid" style="height: 100%">
+  <div class="four wide left column" style="height: 100%">
+    <div class="ui vertical steps">
+      <div class="step"
+        v-class="active: currentView === views.PlayerUploader"
+        v-on="click: showView(views.PlayerUploader)">
+        <i class="cloud upload icon"></i>
+        <div class="content">
+          <div class="title">Upload Players</div>
+        </div>
+      </div>
+      <div class="step"
+        v-class="active: currentView === views.PlayerList"
+        v-on="click: showView(views.PlayerList)">
+        <i class="list layout icon"></i>
+        <div class="content">
+          <div class="title">Player List</div>
+        </div>
+      </div>
+      <div class="step"
+        v-class="active: currentView === views.Groups"
+        v-on="click: showView(views.Groups)">
+        <i class="block layout icon"></i>
+        <div class="content">
+          <div class="title">Player Groups</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="twelve wide right column" style="height: 100%; background: white; overflow: scroll;">
+    <div v-component="{{currentView}}"></div>
+  </div>
+</div>

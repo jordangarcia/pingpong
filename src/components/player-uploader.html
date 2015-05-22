@@ -1,0 +1,15 @@
+<h1 class="page-title">Upload Player CSV</h1>
+
+<div class="ui warning message" v-show="errorMsg">
+  {{ errorMsg }}
+</div>
+
+<form class="ui form" v-on="submit: uploadPlayers($event, playerInput)">
+
+  <div class="field">
+    <label for="">Player CSV</label>
+    <textarea v-model="playerInput" style="width: 100%"></textarea>
+  </div>
+
+  <button type="submit" class="ui submit button">Upload</button>
+</form>
