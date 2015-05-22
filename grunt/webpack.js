@@ -10,7 +10,7 @@ module.exports = {
         path.resolve(__dirname, '../node_modules'),
       ],
       alias: {
-        // alias non npm modules
+        // hack to get vue to load with babel-loader
         'vue': path.resolve(__dirname, '../node_modules/vue/dist/vue'),
       }
     },
@@ -33,7 +33,7 @@ module.exports = {
 
   dev: {
     entry: {
-      app: './src/app/main.js',
+      app: './src/main.js',
     },
 
     plugins: [
@@ -43,5 +43,7 @@ module.exports = {
     ],
 
     watch: true,
+
+    keepalive: true,
   }
 };

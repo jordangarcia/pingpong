@@ -1,7 +1,7 @@
 var Vue = require('vue')
 var Flux = require('flux')
 var App = require('modules/app')
-var controllerComponent = require('../components/controller')
+var controllerComponent = require('components/controller')
 
 Vue.config.debug = true
 
@@ -14,8 +14,3 @@ var Controller = Vue.extend(controllerComponent)
 new Controller({
   el: '#app',
 })
-
-window.a = {
-  App: require('../modules/app'),
-  Players: require('../modules/players'),
-}
